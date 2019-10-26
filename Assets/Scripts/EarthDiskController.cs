@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarthDiskController : MonoBehaviour
 {
-    private HandController controllingHand; // The HandController script for the controlling script
+    private EarthbenderHandController controllingHand; // The HandController script for the controlling script
     private float distanceRatio; // The original ratio of magnitude of (dist hand to disk)/(dist shoulder to hand)
     private DiskState diskState; // The DiskState of this disk
 
@@ -25,14 +25,15 @@ public class EarthDiskController : MonoBehaviour
             // TODO: Logic for inactive disks
         }
         else if(diskState == DiskState.CONTROLLED){
-            // TODO: Logic for controlled disks
+            this.transform.position = this.distanceRatio * (controllingHand.transform.position - controllingHand.shoulder.transform.position);
+            this.gameObject.transform.rotation = controllingHand.transform.rotation*Quaternion.Euler(0, 0, 90);
         }
         else if(diskState == DiskState.FLYING){
             // TODO: Logic for flying disks
         }
     }
 
-    void tether(HandController controllingHand){
+    public void tether(EarthbenderHandController controllingHand){
         // Only tether to a controlling hand if currently inactive
         if(diskState == DiskState.INACTIVE){
             diskState = DiskState.CONTROLLED; // The disk is now controlled
