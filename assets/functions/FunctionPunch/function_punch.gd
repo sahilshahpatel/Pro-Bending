@@ -28,7 +28,7 @@ func _ready():
 		hand = null
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	match state:
 		PunchState.NONE: 
 			if hand.get_linear_velocity().length() >= punch_start_vel:

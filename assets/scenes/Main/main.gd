@@ -15,7 +15,7 @@ func _ready():
 	$EarthDisc.latch($Player/OQ_RightController)
 
 
-func _process(delta):
+func _process(_delta):
 	$Marker.global_transform.origin = \
 		$EarthDisc.get_global_transform().origin \
 		+ 0.1 * $Player/OQ_RightController.get_palm_transform().basis.x
