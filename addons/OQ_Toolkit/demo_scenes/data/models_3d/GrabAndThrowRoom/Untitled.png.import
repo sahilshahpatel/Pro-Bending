@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Untitled.png-819985363acec6eadbbb1f021bdda980.s3tc.stex"
+path.etc="res://.import/Untitled.png-819985363acec6eadbbb1f021bdda980.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://addons/OQ_Toolkit/demo_scenes/data/models_3d/GrabAndThrowRoom/Untitled.png"
+dest_files=[ "res://.import/Untitled.png-819985363acec6eadbbb1f021bdda980.s3tc.stex", "res://.import/Untitled.png-819985363acec6eadbbb1f021bdda980.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

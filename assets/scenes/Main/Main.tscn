@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/objects/EarthDisc/EarthDisc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/OQ_Toolkit/OQ_RightController.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/functions/FunctionPunch/FunctionPunch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/OQ_Toolkit/OQ_LeftController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/OQ_Toolkit/OQ_ARVRCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/scenes/Main/main.gd" type="Script" id=6]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SphereMesh" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="Player" type="ARVROrigin" parent="."]
+
+[node name="OQ_ARVRCamera" parent="Player" instance=ExtResource( 5 )]
+
+[node name="OQ_RightController" parent="Player" instance=ExtResource( 2 )]
+
+[node name="FunctionPunch" parent="Player/OQ_RightController" instance=ExtResource( 3 )]
+punch_start_vel = 3.0
+punch_end_vel = 1.0
+
+[node name="OQ_LeftController" parent="Player" instance=ExtResource( 4 )]
+
+[node name="Fireball" type="MeshInstance" parent="."]
+transform = Transform( 0.144001, 0, 0, 0, 0.144001, 0, 0, 0, 0.144001, -1.90697, 1.48636, 0.0956286 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Marker" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="EarthDisc" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, -1.62921e-08, -0.1, 0, 0.1, -1.62921e-08, 1, 1.5, 0 )
+[connection signal="punched" from="Player/OQ_RightController/FunctionPunch" to="." method="_on_FunctionPunch_punched"]

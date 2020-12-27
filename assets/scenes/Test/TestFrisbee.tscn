@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/objects/EarthDisc/EarthDisc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/scenes/Test/test_frisbee.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="EarthDisc" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.55448e-08, -0.0954136, 0.0299374, -4.87742e-09, -0.0299374, -0.0954136, 0.1, -1.62921e-08, 2.65431e-15, 0, 0, 3 )
+mass = 0.5
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
